@@ -70,4 +70,28 @@
             cout << "5. Exit\n";
             cout << "Enter your choice: ";
             cin >> choice;
+switch (choice) {
+        case 1:
+            displayBuses(busNumbers, destinations, totalSeats, bookedSeats, busCount);
+            break;
+        case 2:
+            makeReservation(busNumbers, destinations, totalSeats, bookedSeats,
+                            reservationNames, reservationSeats, reservationCounts, busCount);
+            break;
+        case 3:
+            viewReservations(busNumbers, destinations, reservationNames, reservationSeats, reservationCounts, busCount);
+            break;
+        case 4:
+            cancelReservation(busNumbers, destinations, totalSeats, bookedSeats,
+                              reservationNames, reservationSeats, reservationCounts, busCount);
+            break;
+        case 5:
+            cout << "Exiting the system.\n";
+            break;
+        default:
+            cout << "Invalid choice! Please try again.\n";
+        }
+    } while (choice != 5);
 
+    return 0;
+}
