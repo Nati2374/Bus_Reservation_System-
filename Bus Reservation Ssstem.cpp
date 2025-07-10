@@ -196,3 +196,23 @@ for (int i = 0; i < busCount; i++) {
             cout << "No reservations found!\n";
         }
     }
+    void cancelReservation(int busNumbers[],
+                           string destinations[],
+                           int totalSeats[],
+                           int bookedSeats[],
+                           string reservationNames[][MAX_RESERVATIONS],
+                           int reservationSeats[][MAX_RESERVATIONS],
+                           int reservationCounts[],
+                           int busCount) {
+        int busNumber;
+        string passengerName;
+
+        cout << "Enter Bus Number: ";
+        cin >> busNumber;
+        cout << "Enter Passenger Name: ";
+        cin >> passengerName;
+
+        for (int i = 0; i < busCount; i++) {
+            if (busNumbers[i] == busNumber) {
+                for (int j = 0; j < reservationCounts[i]; j++) {
+                    if (reservationNames[i][j] == passengerName) {
