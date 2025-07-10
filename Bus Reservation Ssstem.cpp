@@ -143,3 +143,10 @@ switch (choice) {
         cin >> passengerName;
         cout << "Enter Number of Seats: ";
         cin >> numberOfSeats;
+for (int i = 0; i < busCount; i++) {
+            if (busNumbers[i] == busNumber) {
+                // Check seat availability
+                if (bookedSeats[i] + numberOfSeats > totalSeats[i]) {
+                    cout << "Not enough seats available!\n";
+                    return;
+                }
