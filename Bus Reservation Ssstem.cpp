@@ -150,3 +150,25 @@ for (int i = 0; i < busCount; i++) {
                     cout << "Not enough seats available!\n";
                     return;
                 }
+
+                // Check reservation limit
+                if (reservationCounts[i] >= MAX_RESERVATIONS) {
+                    cout << "Reservation limit reached for this bus!\n";
+                    return;
+                }
+
+                // Add reservation
+                int idx = reservationCounts[i];
+                reservationNames[i][idx] = passengerName;
+                reservationSeats[i][idx] = numberOfSeats;
+
+                // Update counters
+                reservationCounts[i]++;
+                bookedSeats[i] += numberOfSeats;
+
+                cout << "Reservation successful for " << passengerName << "!\n";
+                return;
+            }
+        }
+        cout << "Bus not found!\n";
+    }
