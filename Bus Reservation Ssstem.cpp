@@ -95,3 +95,18 @@ switch (choice) {
 
     return 0;
 }
+ void displayBuses(int busNumbers[],
+                      string destinations[],
+                      int totalSeats[],
+                      int bookedSeats[],
+                      int busCount) {
+        cout << "\nAvailable Buses:\n";
+        for (int i = 0; i < busCount; i++) {
+            cout << "Bus Number: " << busNumbers[i]
+                 << ", Destination: " << destinations[i]
+                 << ", Total Seats: " << totalSeats[i]
+                 << ", Booked Seats: " << bookedSeats[i]
+                 << ", Available: " << (totalSeats[i] - bookedSeats[i])
+                 << endl;
+        }
+    }
