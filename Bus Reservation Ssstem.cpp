@@ -110,3 +110,36 @@ switch (choice) {
                  << endl;
         }
     }
+  void makeReservation(int busNumbers[],
+                         string destinations[],
+                         int totalSeats[],
+                         int bookedSeats[],
+                         string reservationNames[][MAX_RESERVATIONS],
+                         int reservationSeats[][MAX_RESERVATIONS],
+                         int reservationCounts[],
+                         int busCount) {
+        int busNumber;
+        string passengerName;
+        int numberOfSeats;
+
+        cout << "Enter Bus Number: ";
+        cin >> busNumber;
+
+        // Immediate check for valid bus number range
+        bool busFoundInSystem = false;
+        for (int i = 0; i < busCount; i++) {
+            if (busNumbers[i] == busNumber) {
+                busFoundInSystem = true;
+                break;
+            }
+        }
+
+        if (!busFoundInSystem) {
+            cout << "Bus not found! Please enter a valid bus number.\n";
+            return;
+        }
+
+        cout << "Enter Passenger Name (single word only): ";
+        cin >> passengerName;
+        cout << "Enter Number of Seats: ";
+        cin >> numberOfSeats;
