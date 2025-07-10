@@ -172,3 +172,27 @@ for (int i = 0; i < busCount; i++) {
         }
         cout << "Bus not found!\n";
     }
+    void viewReservations(int busNumbers[],
+                          string destinations[],
+                          string reservationNames[][MAX_RESERVATIONS],
+                          int reservationSeats[][MAX_RESERVATIONS],
+                          int reservationCounts[],
+                          int busCount) {
+        cout << "\nCurrent Reservations:\n";
+        bool found = false;
+
+        for (int i = 0; i < busCount; i++) {
+            if (reservationCounts[i] > 0) {
+                found = true;
+                cout << "\nBus " << busNumbers[i] << " (" << destinations[i] << "):\n";
+                for (int j = 0; j < reservationCounts[i]; j++) {
+                    cout << "  - " << reservationNames[i][j]
+                         << ": " << reservationSeats[i][j] << " seat(s)\n";
+                }
+            }
+        }
+
+        if (!found) {
+            cout << "No reservations found!\n";
+        }
+    }
