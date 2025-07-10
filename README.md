@@ -109,5 +109,6 @@ Reservation successful!
    ```
 
 ## 📜 License
-Academic Project - © 2023 St. Mary's University
+Academic Project - © 2025 St. Mary's University
+RCD2017A 
 ```
