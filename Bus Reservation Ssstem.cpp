@@ -216,3 +216,26 @@ for (int i = 0; i < busCount; i++) {
             if (busNumbers[i] == busNumber) {
                 for (int j = 0; j < reservationCounts[i]; j++) {
                     if (reservationNames[i][j] == passengerName) {
+                        // Remove reservation
+                        int canceledSeats = reservationSeats[i][j];
+
+                        // Shift reservations
+                        for (int k = j; k < reservationCounts[i] - 1; k++) {
+                            reservationNames[i][k] = reservationNames[i][k + 1];
+                            reservationSeats[i][k] = reservationSeats[i][k + 1];
+                        }
+
+                        // Update counters
+                        reservationCounts[i]--;
+                        bookedSeats[i] -= canceledSeats;
+
+                        cout << "Canceled " << canceledSeats << " seat(s) for " << passengerName << "!\n";
+                        return;
+                    }
+                }
+                cout << "Reservation not found for " << passengerName << "!\n";
+                return;
+            }
+        }
+        cout << "Bus not found!\n";
+    }
